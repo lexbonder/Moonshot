@@ -19,6 +19,8 @@ struct MissionView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.6)
+                        .accessibilityRemoveTraits(.isImage)
+                        .accessibilityLabel("Mission logo for \(mission.displayName)")
 
                     Text("Launch Date: \(mission.formattedLaunchDate)")
                         .padding(.top)

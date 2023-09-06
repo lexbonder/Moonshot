@@ -27,6 +27,7 @@ struct ListStyle: View {
                     Text(mission.formattedLaunchDate)
                         .font(.caption)
                         .foregroundColor(.white.opacity(0.5))
+                        .accessibilityLabel(mission.formattedLaunchDate == "N/A" ? "No launch date" : mission.formattedLaunchDate)
                 }
             }
             .listRowBackground(

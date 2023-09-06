@@ -23,10 +23,12 @@ struct GridStyle: View {
                         MissionView(mission: mission, astronauts: astronauts)
                     } label: {
                         VStack {
-                            Image(mission.image)
+                            Image(decorative: mission.image)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)
+                                .accessibilityRemoveTraits(.isImage)
+                                .accessibilityAddTraits(.isLink)
                             VStack {
                                 Text(mission.displayName)
                                     .font(.headline)
@@ -34,6 +36,7 @@ struct GridStyle: View {
                                 Text(mission.formattedLaunchDate)
                                     .font(.caption)
                                     .foregroundColor(.white.opacity(0.5))
+                                    .accessibilityLabel(mission.formattedLaunchDate == "N/A" ? "No launch date" : mission.formattedLaunchDate)
                             }
                             .padding(.vertical)
                             .frame(maxWidth: .infinity)
